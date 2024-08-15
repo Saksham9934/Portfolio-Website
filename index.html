@@ -223,8 +223,8 @@
                 </div>                
             <div class="column right">
                 <div class="text">Message me...</div>
-                <form id="forms" action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="3aad567e-a7a5-441a-9509-d13526f26d93">
+                <form id="forms" action="https://script.google.com/macros/s/AKfycbzWZc5u3wu6WVjoFbr35KV5m4AqW_nsgWjbdFvOKZqbM1mhdADkwqtnNx8IJtR67mhpBg/exec" method="POST">
+                    <!-- <input type="hidden" name="access_key" value="3aad567e-a7a5-441a-9509-d13526f26d93"> -->
                     <div class="fields">
                         <div class="field name">
                             <input type="text" name="name" placeholder="Name" required>
@@ -251,6 +251,16 @@
     <footer>
         <span>Created By <a href="#">Saksham Jha</a> | <span class="far fa-copyright"></span> 2024 All rights reserved.</span>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js">
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzWZc5u3wu6WVjoFbr35KV5m4AqW_nsgWjbdFvOKZqbM1mhdADkwqtnNx8IJtR67mhpBg/exec';
+        const form = document.forms["google-sheet"]
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+    </script>
 </body>
 </html>
